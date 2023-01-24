@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HiMagnifyingGlass, HiBell } from 'react-icons/hi2';
+import useAuth from '../hooks/useAuth';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
+    const { logout } = useAuth()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -46,13 +48,13 @@ function Header() {
             <HiMagnifyingGlass className='hidden h-6 w-6 sm:inline ' />
             <p className='hidden lg:inline'>Kids</p>
             <HiBell className='h-6 w-6' />
-            <Link href='/account'>
-                <img 
-                    src='https://rb.gy/g1pwyx'
-                    alt=''
-                    className='cursor-pointer rounded'
-                />
-            </Link>
+             <img 
+                onClick={logout}
+                src='https://rb.gy/g1pwyx'
+                alt=''
+                className='cursor-pointer rounded'
+             />
+            
         </div>
     </header>
   )
