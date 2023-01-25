@@ -107,7 +107,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             {!initialLoading && children}
         </AuthContext.Provider>
   )
-  
 }
 
 export default function useAuth() {
