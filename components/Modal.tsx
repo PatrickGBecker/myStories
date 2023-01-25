@@ -110,7 +110,7 @@ const handleClose = () => {
                 {movie?.release_date || movie?.first_air_date}
               </p>
               <div className='flex h-4 items-center justify-center rounded border border-white/40 px-1.5 text-xs'>
-                
+                HD
               </div>
             </div>
             <div className='flex flex-col gap-x-10 gap-y-4 font-light md:flex-row'>
