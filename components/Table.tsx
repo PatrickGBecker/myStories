@@ -3,7 +3,7 @@ import { Product } from "@stripe/firestore-stripe-payments"
 
 interface Props {
     products: Product[]
-    selectedPlan: Product
+    selectedPlan: Product | null
 }
 
 function Table({products, selectedPlan}: Props) {
@@ -14,11 +14,11 @@ function Table({products, selectedPlan}: Props) {
                 <td className="tableDataTitle">Monthly price</td>
                 {products.map((product) => (
                     <td
-                        className={`tableDataFeature ${selectedPlan?.id === product.id
-                        ? 'text-[#E50914]': 'text-[gray]'}`}
-                        key={product.id}
+                      className={`tableDataFeature ${selectedPlan?.id === product.id
+                      ? 'text-[#00cc33]': 'text-[gray]'}`}
+                      key={product.id}
                     >
-                        USD {product.prices[0].unit_amount! / 100}
+                      USD ${product.prices[0].unit_amount! / 100}
                     </td>
                 ))}
             </tr>
@@ -26,15 +26,44 @@ function Table({products, selectedPlan}: Props) {
               <tr className="tableRow">
                 <td className="tableDataTitle">Video quality</td>
                 {products.map((product) => (
-                    <td
-                        className={`tableDataFeature ${selectedPlan?.id === product.id
-                        ? 'text-[#E50914]': 'text-[gray]'}`}
-                        key={product.id}
-                    >
-                        {product.metadata.videoQuality}
-                    </td>
+                   <td
+                     className={`tableDataFeature ${selectedPlan?.id === product.id
+                     ? 'text-[#00cc33]': 'text-[gray]'}`}
+                     key={product.id}
+                   >
+                    {product.metadata.videoQuality}
+                   </td>
                 ))}
             </tr>
+
+                 <tr className="tableRow">
+          <td className="tableDataTitle">Resolution</td>
+          {products.map((product) => (
+            <td
+              className={`tableDataFeature ${selectedPlan?.id === product.id
+              ? 'text-[#00cc33]': 'text-[gray]'}`}
+              key={product.id}
+            >
+              {product.metadata.resolution}
+            </td>
+          ))}
+        </tr>
+        <tr className="tableRow">
+          <td className="tableDataTitle">
+            Watch on your TV, computer, mobile phone and tablet
+          </td>
+          {products.map((product) => (
+            <td
+              className={`tableDataFeature ${selectedPlan?.id === product.id
+              ? 'text-[#00cc33]': 'text-[gray]'}`}
+              key={product.id}
+            >
+              {product.metadata.portability === 'true' && (
+                <HiCheck className="inline-block h-8 w-8" />
+              )}
+            </td>
+          ))}
+        </tr>
         </tbody>
     </table>
   )

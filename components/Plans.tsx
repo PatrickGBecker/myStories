@@ -7,14 +7,27 @@ import { HiCheck } from "react-icons/hi2"
 import Table from "./Table"
 import { Product } from "@stripe/firestore-stripe-payments"
 import { useState } from "react"
+import { loadCheckout } from "../lib/stripe"
+import Loader from "./Loader"
 
 interface Props {
     products: Product[]
 }
 
 function Plans({ products }: Props) {
-    const {logout} = useAuth()
+    const {logout, user} = useAuth()
     const [selectedPlan, setSelectedPlan] = useState<Product | null>(products[2])
+    const [isBillingLoading, setBillingLoading] = useState(false)
+
+
+    const subscribeToPlan = () => {
+        if (!user) return
+
+        loadCheckout(selectedPlan?.prices[0].id!)
+        setBillingLoading(true)
+    }
+
+
   return (
     <div>
         <Head>
@@ -76,7 +89,15 @@ function Plans({ products }: Props) {
                     selectedPlan={selectedPlan}
                 />
 
-                <button>Subscribe</button>
+                <button
+                    disabled={!selectedPlan || isBillingLoading}
+                    className={`mx-auto w-11/12 rounded bg-[#00cc33] py-4 text-xl shadow hover:bg-[#1f8d2e] md:w-[420px] ${isBillingLoading && 'opacity-60'}`}
+                    onClick={subscribeToPlan}
+                >
+                    {isBillingLoading ? (
+                        <Loader color="dark:fill-gray-300" />
+                    ) : ('Subscribe')}
+                </button>
             </div>
         </main>
     </div>
