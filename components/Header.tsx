@@ -34,7 +34,7 @@ function Header() {
                 src={myStoriesLogo}
                 width={150}
                 height={40}
-                className='cursor-pointer object-contain'
+                className='cursor-pointer object-contain shadow-md'
             />
 
             <ul className='hidden space-x-4 md:flex'>

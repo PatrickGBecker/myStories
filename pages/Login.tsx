@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/legacy/image"
+import myStoriesLogo from '../public/my-stories-logo.png'
 import { useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
@@ -40,10 +41,10 @@ function Login() {
         objectFit="cover"
       />
 
-      <img 
-        src='https://rb.gy/ulxxee'
+      <Image 
+        src={myStoriesLogo}
         className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
-        width={150}
+        width={200}
         height={150}
       />
 
@@ -81,7 +82,7 @@ function Login() {
           </div>
 
           <button 
-            className="w-full rounded bg-[#e50914] py-3 font-semibold"
+            className="w-full rounded bg-[#00cc33] py-3 font-semibold"
             onClick={() => setLogin(true)}
           >
             Sign In
