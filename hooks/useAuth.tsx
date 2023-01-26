@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           // Not logged in...
           setUser(null)
           setLoading(true)
-          router.push('https://my-stories-app.vercel.app/login')
+          router.push('my-stories-i8mc437p2-patrickgbecker.vercel.app/login')
         }
 
         setInitialLoading(false)
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             setUser(userCredential.user)
-            router.push('https://my-stories-app.vercel.app/')
+            router.push('my-stories-i8mc437p2-patrickgbecker.vercel.app/')
             setLoading(false)
         })
         .catch((error) => alert(error.message))
@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         await signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             setUser(userCredential.user)
-            router.push('https://my-stories-app.vercel.app/')
+            router.push('my-stories-i8mc437p2-patrickgbecker.vercel.app/')
             setLoading(false)
         })
         .catch((error) => alert(error.message))
