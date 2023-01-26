@@ -16,7 +16,7 @@ const loadCheckout = async (priceId: string) => {
         success_url: window.location.origin,
         cancel_url: window.location.origin
     })
-    .then((snapshot: { url: string | URL }) => window.location.assign(snapshot.url))
+    .then((snapshot: { url: string }) => window.location.assign(snapshot.url))
     .catch((error: { message: any }) => console.log(error.message))
 }
 
