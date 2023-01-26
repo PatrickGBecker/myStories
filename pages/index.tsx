@@ -1,4 +1,4 @@
-
+import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import Modal from '../components/Modal'
 import Head from 'next/head'
 import { useRecoilValue } from 'recoil'
@@ -10,9 +10,8 @@ import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import Plans from '../components/Plans'
-import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import payments from '../lib/stripe'
-//import { getProducts, Product } from '@stripe/firestore-stripe-payments'
+
 interface Props {
   netflixOriginals: Movie[]
   trendingNow: Movie[]
@@ -42,7 +41,7 @@ const Home = ({
 
     if (loading || subscription === null) return null
 
-    if (!subscription) return <Plans />
+    if (!subscription) return <Plans products={products}/>
 
   return (
     <div className={`relative h-screen bg-gradient-to-b 
@@ -80,8 +79,8 @@ const products = await getProducts(payments, {
     includePrices: true,
     activeOnly: true,
   })
-    .then((res) => res)
-    .catch((error) => console.log(error.message))
+    .then((res: any) => res)
+    .catch((error: { message: any }) => console.log(error.message))
  
   const [
     netflixOriginals,

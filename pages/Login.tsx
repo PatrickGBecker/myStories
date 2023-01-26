@@ -2,7 +2,7 @@ import Head from "next/head"
 import Image from "next/legacy/image"
 import myStoriesLogo from '../public/my-stories-logo.png'
 import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form';
 import useAuth from "../hooks/useAuth";
 
 interface Inputs {
