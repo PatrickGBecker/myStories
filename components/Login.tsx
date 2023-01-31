@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import myStoriesLogo from '../public/my-stories-logo.png'
 import myStoriesUserIcon from '../public/my-stories-user-icon.png'
 import { useRef, useState } from 'react'

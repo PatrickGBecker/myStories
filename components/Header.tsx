@@ -4,7 +4,7 @@ import myStoriesLogo from '../public/my-stories-logo.png'
 import { useEffect, useState } from 'react';
 import { HiMagnifyingGlass, HiBell } from 'react-icons/hi2';
 import useAuth from '../hooks/useAuth';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import BasicMenu from './BasicMenu';
 
 function Header() {
@@ -57,13 +57,15 @@ function Header() {
             <p className='hidden lg:inline'>Children</p>
             <HiBell className='h-6 w-6' />
             <Link href='/account'>
-             <Image
-                src={myStoriesUserIcon}
-                width={40}
-                height={40}
-                alt='user icon is smiley face with blue and green gradient'
-                className='cursor-pointer rounded'
-             />
+                <div>
+                    <Image
+                        src={myStoriesUserIcon}
+                        width={40}
+                        height={40}
+                        alt='user icon is smiley face with blue and green gradient'
+                        className='cursor-pointer rounded'
+                    />
+                </div>
             </Link> 
         </div>
     </header>

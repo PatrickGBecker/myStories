@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import myStoriesLogo from '../public/my-stories-logo.png'
 import { useState } from "react"
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -13,9 +13,11 @@ interface Inputs {
 function Login() {
   const [login, setLogin] = useState(false)
   const { signIn, signUp } = useAuth()
+
   const { 
     register, 
     handleSubmit, 
+    watch,
     formState: { errors }
   } = useForm<Inputs>();
 
@@ -57,8 +59,10 @@ function Login() {
               <input 
                 type='email' 
                 placeholder='Email' 
-                className="input"
-                {...register("email", { required: true })}
+                className={`input ${
+                  errors.email && 'border-b-2 border-green-500'
+                }`}
+                {...register('email', { required: true })}
               />
               {errors.email && (
               <p className="p-1 text-[13px] font-light text-orange-500">
@@ -69,13 +73,15 @@ function Login() {
             <label className="inline-block w-full">
               <input 
                 type='password' 
+                {...register('password', { required: true })}
                 placeholder="Password" 
-                className="input"
-                {...register("password", { required: true })}
+                className={`input ${
+                  errors.password && 'border-b-2 border-green-5000'
+                }`}
               />
               {errors.password && (
-              <p className="p-1 text-[13px] font-light text-orange-500">
-                This field is required
+              <p className="p-1 text-[13px] font-light text-green-500">
+                Your password must contain between 4 and 60 characters.
               </p>
             )}
             </label>
