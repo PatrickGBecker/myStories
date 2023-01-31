@@ -1,9 +1,19 @@
 import MuiModal from '@mui/material/Modal'
-import { collection, deleteDoc, doc, DocumentData, onSnapshot, setDoc } from 'firebase/firestore'
+import { 
+  collection, 
+  deleteDoc, doc, 
+  DocumentData, 
+  onSnapshot, 
+  setDoc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { toast, Toaster } from 'react-hot-toast'
 import { FaPlay } from 'react-icons/fa'
-import { HiCheck, HiHandThumbUp, HiOutlineXCircle, HiPlus, HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2'
+import { HiCheck, 
+  HiHandThumbUp, 
+  HiOutlineXCircle, 
+  HiPlus, 
+  HiSpeakerWave, 
+  HiSpeakerXMark } from 'react-icons/hi2'
 import ReactPlayer from 'react-player/lazy'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'

@@ -84,6 +84,7 @@ function Login() {
           <button 
             className="w-full rounded bg-[#00cc33] py-3 font-semibold"
             onClick={() => setLogin(true)}
+            type='submit'
           >
             Sign In
           </button>
