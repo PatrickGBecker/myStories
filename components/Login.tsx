@@ -34,7 +34,7 @@ function Login() {
   return (
     <div className="relative flex h-screen w-screen flex-col md:items-center md:justify-center">
       <Head>
-        <title>Netflix</title>
+        <title>Mt Stories</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Image
@@ -61,7 +61,7 @@ function Login() {
               {...register('email', { required: true })}
             />
             {errors.email && (
-              <p className="text-sm  text-orange-500">
+              <p className="text-sm  text-green-500">
                 Please enter a valid email.
               </p>
             )}
@@ -74,14 +74,14 @@ function Login() {
               className="input"
             />
             {errors.password && (
-              <p className="text-sm  text-orange-500">
+              <p className="text-sm  text-green-500">
                 Your password must contain between 4 and 60 characters.
               </p>
             )}
           </label>
         </div>
         <button
-          className="w-full rounded bg-[#E50914] py-3 font-semibold"
+          className="w-full rounded bg-[#00cc33] py-3 font-semibold"
           onClick={() => setLogin(true)}
           type="submit"
         >

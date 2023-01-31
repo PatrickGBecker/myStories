@@ -42,7 +42,7 @@ function Account({products}: Props) {
         <Link href="/account">
           <Image
             src={myStoriesUserIcon}
-            alt=""
+            alt="smiley face icon"
             layout='fill'
             className="object-contain object-fit object-right cursor-pointer rounded"
           />
