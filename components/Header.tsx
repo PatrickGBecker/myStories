@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { HiMagnifyingGlass, HiBell } from 'react-icons/hi2';
 import useAuth from '../hooks/useAuth';
 import Image from 'next/legacy/image';
+import BasicMenu from './BasicMenu';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -27,7 +28,7 @@ function Header() {
     }, [])
 
   return (
-    <header className={`${isScrolled && 'bg-[#141414]'}`}>
+    <header className={`${isScrolled && 'bg-[#226400]'}`}>
         {/* left section */}
         <div className="flex items-center space-x-2 md:space-x-10">
             <Image 
@@ -36,6 +37,8 @@ function Header() {
                 height={40}
                 className='cursor-pointer object-contain shadow-md'
             />
+
+            <BasicMenu />
 
             <ul className='hidden space-x-4 md:flex'>
                 <li className='headerLink'>Home</li>
@@ -51,16 +54,15 @@ function Header() {
             <HiMagnifyingGlass className='hidden h-6 w-6 sm:inline ' />
             <p className='hidden lg:inline'>Children</p>
             <HiBell className='h-6 w-6' />
-            <div className='ml'>
+            <Link href='/account'>
              <Image
-                onClick={logout}
                 src={myStoriesUserIcon}
                 width={40}
                 height={40}
                 alt='user icon is smiley face with blue and green gradient'
                 className='cursor-pointer rounded'
              />
-            </div> 
+            </Link> 
         </div>
     </header>
   )

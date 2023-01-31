@@ -2,10 +2,11 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 import { Movie } from '../typings'
 import Thumbnail from '../components/Thumbnail'
 import { useRef, useState } from 'react'
+import { DocumentData } from 'firebase/firestore'
 
 interface Props {
     title: string
-    movies: Movie[]
+    movies: Movie[] | DocumentData[]
 }
 
 
